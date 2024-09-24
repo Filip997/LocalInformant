@@ -6,33 +6,44 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.localinformant.models.RegisterCompanyRequest
 import com.example.localinformant.models.RegisterPersonRequest
-import com.example.localinformant.models.RegisterUserResponse
-import com.example.localinformant.repositories.RegisterRepository
+import com.example.localinformant.repositories.FirebaseAuthRepository
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.schedulers.Schedulers
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlin.math.truncate
 
 class RegisterViewModel : ViewModel() {
 
-    private val registerRepository = RegisterRepository()
+    private val registerRepository = FirebaseAuthRepository()
 
-    private val registerUserMutableLiveData = MutableLiveData<RegisterUserResponse>()
-    val registerUserLiveData: LiveData<RegisterUserResponse> = registerUserMutableLiveData
+    private val _isLoading = MutableLiveData(false)
+    val isLoading: LiveData<Boolean> = _isLoading
 
-    private val isLoadingMutable = MutableLiveData<Boolean>()
-    val isLoading: LiveData<Boolean> = isLoadingMutable
+    private val _signupSuccessful = MutableLiveData(false)
+    val signupSuccessful = _signupSuccessful
 
-    fun registerPersonWithEmailAndPassword(request: RegisterPersonRequest) {
-        viewModelScope.launch {
-            isLoadingMutable.postValue(true)
-            registerRepository.registerPersonWithEmailAndPassword(request, registerUserMutableLiveData)
-            isLoadingMutable.postValue(false)
+    private var _signupMessage = MutableLiveData("")
+    val signupMessage = _signupMessage
+
+    fun registerPersonWithEmail(request: RegisterPersonRequest) {
+        viewModelScope.launch(Dispatchers.IO) {
+            _isLoading.postValue(true)
+            val authResponse = registerRepository.registerPersonWithEmail(request)
+            _signupSuccessful.postValue(authResponse.isSuccessful)
+            _signupMessage.postValue(authResponse.message)
+            _isLoading.postValue(false)
         }
     }
 
-    fun registerCompanyWithEmailAndPassword(request: RegisterCompanyRequest) {
-        viewModelScope.launch {
-            isLoadingMutable.postValue(true)
-            registerRepository.registerCompanyWithEmailAndPassword(request, registerUserMutableLiveData)
+    fun registerCompanyWithEmail(request: RegisterCompanyRequest) {
+        viewModelScope.launch(Dispatchers.IO) {
+            _isLoading.postValue(true)
+            val authResponse = registerRepository.registerCompanyWithEmail(request)
+            _signupSuccessful.postValue(authResponse.isSuccessful)
+            _signupMessage.postValue(authResponse.message)
+            _isLoading.postValue(false)
         }
     }
+
 }

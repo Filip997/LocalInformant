@@ -7,29 +7,45 @@
     tools:context=".views.activities.MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragment_container_view"
-        android:name="com.example.localinformant.views.fragments.HomeFragment"
-        android:layout_width="match_parent"
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="0dp"
         android:layout_height="0dp"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav_view"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/app_bar_layout"/>
+        app:navGraph="@navigation/nav_graph" />
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/app_bar_layout"
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_create_post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_input_add"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragment_container_view">
+        app:layout_constraintTop_toTopOf="@+id/bottom_nav_view"/>
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_navigation_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-    </com.google.android.material.appbar.AppBarLayout>
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
