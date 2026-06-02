@@ -1,0 +1,124 @@
+package com.example.localinformant.core.data.mappers
+
+import com.example.localinformant.core.data.dto.CommentDto
+import com.example.localinformant.core.data.dto.CompanyDto
+import com.example.localinformant.core.data.dto.ConversationDto
+import com.example.localinformant.core.data.dto.MessageDto
+import com.example.localinformant.core.data.dto.NotificationDto
+import com.example.localinformant.core.data.dto.PersonDto
+import com.example.localinformant.core.data.dto.PostDto
+import com.example.localinformant.core.data.dto.ReactionDto
+import com.example.localinformant.core.domain.models.Comment
+import com.example.localinformant.core.domain.models.Company
+import com.example.localinformant.core.domain.models.Conversation
+import com.example.localinformant.core.domain.models.Message
+import com.example.localinformant.core.domain.models.Notification
+import com.example.localinformant.core.domain.models.Person
+import com.example.localinformant.core.domain.models.Post
+import com.example.localinformant.core.domain.models.Reaction
+import com.example.localinformant.core.domain.models.UserType
+import com.google.firebase.Timestamp
+
+fun Post.toDto(): PostDto {
+    return PostDto(
+        id = id,
+        createdAt = Timestamp(createdAt / 1000, ((createdAt % 1000) * 1_000_000).toInt()),
+        userId = userId,
+        postText = postText,
+        imageUrls = imageUrls,
+        likes = likes.map { it.id },
+        comments = comments.map { it.id }
+    )
+}
+
+fun Company.toDto(): CompanyDto {
+    return CompanyDto(
+        id = id,
+        companyName = companyName,
+        companyNameLowerCase = companyName.lowercase(),
+        companyProfileImageUrl = companyProfileImageUrl,
+        companyEmail = companyEmail,
+        email = email,
+        firstName = firstName,
+        lastName = lastName,
+        status = status?.name ?: "",
+        token = token,
+        followers = followers,
+        following = following,
+        posts = posts
+    )
+}
+
+fun Person.toDto(): PersonDto {
+    return PersonDto(
+        id = id,
+        profileImageUrl = profileImageUrl,
+        firstName = firstName,
+        firstNameLowerCase = firstName.lowercase(),
+        lastName = lastName,
+        lastNameLowerCase = lastName.lowercase(),
+        email = email,
+        status = status?.name ?: "",
+        token = token,
+        following = following
+    )
+}
+
+fun Comment.toDto(): CommentDto {
+    return CommentDto(
+        id = id,
+        createdAt = Timestamp(createdAt / 1000, ((createdAt % 1000) * 1_000_000).toInt()),
+        userId = userId,
+        userType = userType?.name ?: "",
+        postId = postId,
+        commentText = commentText
+    )
+}
+
+fun Reaction.toDto(): ReactionDto {
+    return ReactionDto(
+        id = id,
+        userId = userId,
+        userType = userType?.name ?: "",
+        postId = postId
+    )
+}
+
+fun Notification.toDto(): NotificationDto {
+    return NotificationDto(
+        id = id,
+        createdOn = Timestamp(createdOn / 1000, ((createdOn % 1000) * 1_000_000).toInt()),
+        fromUserId = when(fromUserType!!) {
+            UserType.PERSON -> (fromUser as Person).id
+            UserType.COMPANY -> (fromUser as Company).id
+        },
+        fromUserType = fromUserType.name,
+        postId = postId,
+        notificationType = notificationType?.name ?: ""
+    )
+}
+
+fun Conversation.toDto(): ConversationDto {
+    return ConversationDto(
+        id = id,
+        participants = participants,
+        messages = messages,
+        lastMessage = lastMessage,
+        lastMessageUserId = lastMessageUserId,
+        lastMessageTime = Timestamp(
+            lastMessageTime / 1000,
+            ((lastMessageTime % 1000) * 1_000_000).toInt()
+        )
+    )
+}
+
+fun Message.toDto(): MessageDto {
+    return MessageDto(
+        id = id,
+        conversationId = conversationId,
+        senderId = senderId,
+        receiverId = receiverId,
+        content = content,
+        timeSent = Timestamp(timeSent / 1000, ((timeSent % 1000) * 1_000_000).toInt())
+    )
+}
