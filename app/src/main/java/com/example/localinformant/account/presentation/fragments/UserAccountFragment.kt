@@ -110,6 +110,18 @@ class UserAccountFragment : Fragment() {
                             binding.layoutPostsAccount.visibility = View.VISIBLE
                         }
 
+                        if (state.isLoadingPosts) {
+                            binding.rvPostsAccount.visibility = View.GONE
+
+                            binding.layoutShimmerPostsAccount.startShimmer()
+                            binding.layoutShimmerPostsAccount.isVisible = true
+                        } else {
+                            binding.layoutShimmerPostsAccount.stopShimmer()
+                            binding.layoutShimmerPostsAccount.isVisible = false
+
+                            binding.rvPostsAccount.visibility = View.VISIBLE
+                        }
+
                         if (state.isLoadingFollowRequest)
                             binding.progressbarFollowRequestAccount.visibility = View.VISIBLE
                         else

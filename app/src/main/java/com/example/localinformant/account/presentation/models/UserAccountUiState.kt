@@ -5,6 +5,7 @@ import com.example.localinformant.core.presentation.models.UserAccountDetailsUi
 
 data class UserAccountUiState(
     val isLoading: Boolean = false,
+    val isLoadingPosts: Boolean = false,
     val isLoadingFollowRequest: Boolean = false,
     val userAccountDetails: UserAccountDetailsUi = UserAccountDetailsUi(),
     val error: NetworkError? = null

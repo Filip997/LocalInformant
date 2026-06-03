@@ -39,7 +39,10 @@ class ReactionsPopUpWindow @Inject constructor(
         val postReactionsAdapter = PostReactionsAdapter(
             activity,
             reactions,
-            goToUserProfile
+            { userId, userType ->
+                createPostPopUpWindow.dismiss()
+                goToUserProfile(userId, userType)
+            }
         )
         binding.rvHomePostUserReactions.layoutManager = LinearLayoutManager(activity)
         binding.rvHomePostUserReactions.adapter = postReactionsAdapter

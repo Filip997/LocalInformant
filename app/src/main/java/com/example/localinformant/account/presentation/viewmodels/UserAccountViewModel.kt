@@ -32,6 +32,7 @@ import com.example.localinformant.core.presentation.models.UserAccountDetailsUi
 import com.example.localinformant.home.presentation.events.SubmitCommentEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -86,6 +87,8 @@ class UserAccountViewModel @Inject constructor(
     private val _startConversationEvent: MutableSharedFlow<StartConversationEvent> = MutableSharedFlow()
     val startConversationEvent = _startConversationEvent.asSharedFlow()
 
+    private var liveReactionsJob: Job? = null
+    private var liveCommentsJob: Job? = null
     private var isLoadingMore = false
     private var endReached = false
 
@@ -302,6 +305,12 @@ class UserAccountViewModel @Inject constructor(
 
     fun getPostsWherePersonReacted(userId: String?) {
         viewModelScope.launch(Dispatchers.IO) {
+            _userAccountUiState.update {
+                it.copy(
+                    isLoadingPosts = true
+                )
+            }
+
             when(val result = getPostsWherePersonReactedUseCase.invoke(userId, true)) {
                 is Result.Success -> {
                     val postsWherePersonReacted = result.data
@@ -327,6 +336,12 @@ class UserAccountViewModel @Inject constructor(
                         )
                     }
                 }
+            }
+
+            _userAccountUiState.update {
+                it.copy(
+                    isLoadingPosts = false
+                )
             }
 
             endReached = false
@@ -371,6 +386,12 @@ class UserAccountViewModel @Inject constructor(
 
     fun getPostsWherePersonCommented(userId: String?) {
         viewModelScope.launch(Dispatchers.IO) {
+            _userAccountUiState.update {
+                it.copy(
+                    isLoadingPosts = true
+                )
+            }
+
             when(val result = getPostsWherePersonCommentedUseCase.invoke(userId, true)) {
                 is Result.Success -> {
                     val postsWherePersonCommented = result.data
@@ -383,6 +404,9 @@ class UserAccountViewModel @Inject constructor(
                             error = null
                         )
                     }
+
+                    observeReactionsForVisiblePosts()
+                    observeCommentsForVisiblePosts()
                 }
                 is Result.Error -> {
                     _userAccountUiState.update { state ->
@@ -393,6 +417,12 @@ class UserAccountViewModel @Inject constructor(
                         )
                     }
                 }
+            }
+
+            _userAccountUiState.update {
+                it.copy(
+                    isLoadingPosts = false
+                )
             }
 
             endReached = false
@@ -436,7 +466,9 @@ class UserAccountViewModel @Inject constructor(
     }
 
     private fun observeReactionsForVisiblePosts() {
-        viewModelScope.launch {
+        liveReactionsJob?.cancel()
+
+        liveReactionsJob = viewModelScope.launch {
             visiblePostIds
                 .debounce(300)
                 .flatMapLatest { postIds ->
@@ -547,7 +579,9 @@ class UserAccountViewModel @Inject constructor(
     }
 
     private fun observeCommentsForVisiblePosts() {
-        viewModelScope.launch {
+        liveCommentsJob?.cancel()
+
+        liveCommentsJob = viewModelScope.launch {
             visiblePostIds
                 .debounce(300)
                 .flatMapLatest { postIds ->
