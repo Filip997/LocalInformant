@@ -72,9 +72,10 @@ dependencies {
     // SwipeRefreshLayout
     implementation ("androidx.swiperefreshlayout:swiperefreshlayout:1.2.0")
 
-    // RxJava
-    implementation ("io.reactivex.rxjava2:rxjava:2.2.21")
-    implementation ("io.reactivex.rxjava2:rxandroid:2.1.1")
+    //Shimmer
+    implementation ("com.facebook.shimmer:shimmer:0.5.0")
+
+    // Navigation Component
     implementation("androidx.navigation:navigation-fragment-ktx:2.8.0")
     implementation("androidx.navigation:navigation-ui-ktx:2.8.0")
 

@@ -25,6 +25,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import com.example.localinformant.account.presentation.events.FollowUnfollowCompanyEvent
 import com.example.localinformant.account.presentation.events.OpenFollowersFollowingPopUpWindowEvent
 import com.example.localinformant.account.presentation.events.SetProfilePictureEvent
@@ -91,11 +92,23 @@ class UserAccountFragment : Fragment() {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 userAccountViewModel.userAccountUiState.collect { state ->
                     if (state.error == null) {
+                        if (state.isLoading) {
+                            binding.layoutTopBarAccount.visibility = View.GONE
+                            binding.layoutUserInfoAccount.visibility = View.GONE
+                            binding.layoutPersonReactionsCommentsAccount.visibility = View.GONE
+                            binding.layoutPostsAccount.visibility = View.GONE
 
-                        if (state.isLoading)
-                            binding.progressbarAccount.visibility = View.VISIBLE
-                        else
-                            binding.progressbarAccount.visibility = View.GONE
+                            binding.layoutShimmerAccount.startShimmer()
+                            binding.layoutShimmerAccount.isVisible = true
+                        } else {
+                            binding.layoutShimmerAccount.stopShimmer()
+                            binding.layoutShimmerAccount.isVisible = false
+
+                            binding.layoutTopBarAccount.visibility = View.VISIBLE
+                            binding.layoutUserInfoAccount.visibility = View.VISIBLE
+                            binding.layoutPersonReactionsCommentsAccount.visibility = View.VISIBLE
+                            binding.layoutPostsAccount.visibility = View.VISIBLE
+                        }
 
                         if (state.isLoadingFollowRequest)
                             binding.progressbarFollowRequestAccount.visibility = View.VISIBLE

@@ -8,6 +8,7 @@
     tools:context=".account.presentation.fragments.UserAccountFragment">
 
     <FrameLayout
+        android:id="@+id/layout_top_bar_account"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:paddingHorizontal="@dimen/margin_padding_size_large"
@@ -338,15 +339,18 @@
 
     </LinearLayout>
 
-    <ProgressBar
-        android:id="@+id/progressbar_account"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/layout_shimmer_account"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:visibility="gone"
-        android:elevation="@dimen/margin_padding_size_xxlarge"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <include layout="@layout/shimmer_loading_account_design"/>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,639 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginHorizontal="@dimen/margin_padding_size_small"
+    android:layout_marginTop="@dimen/margin_padding_size_small"
+    android:background="@drawable/bg_post_card">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_shimmer_post_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/md_theme_background"
+        app:cardCornerRadius="10dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/md_theme_background"
+            android:padding="@dimen/margin_padding_size_large">
+
+            <!-- Company Details Skeleton -->
+            <LinearLayout
+                android:id="@+id/layout_shimmer_company_details_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <!-- Profile Image Placeholder -->
+                <View
+                    android:id="@+id/skeleton_profile_image_1"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@android:color/darker_gray"
+                    android:elevation="10dp" />
+
+                <!-- Company Name Placeholder -->
+                <View
+                    android:layout_width="100dp"
+                    android:layout_height="16dp"
+                    android:layout_marginStart="@dimen/margin_padding_size_large"
+                    android:background="@android:color/darker_gray"
+                    android:elevation="10dp" />
+
+                <!-- Divider Dot -->
+                <View
+                    android:layout_width="4dp"
+                    android:layout_height="4dp"
+                    android:layout_marginStart="@dimen/margin_padding_size_medium"
+                    android:background="@android:color/darker_gray"
+                    android:elevation="10dp" />
+
+                <!-- Time Placeholder -->
+                <View
+                    android:layout_width="40dp"
+                    android:layout_height="14dp"
+                    android:layout_marginStart="@dimen/margin_padding_size_small"
+                    android:background="@android:color/darker_gray"
+                    android:elevation="10dp" />
+
+            </LinearLayout>
+
+            <!-- Post Content Skeleton -->
+            <LinearLayout
+                android:id="@+id/layout_shimmer_post_content_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_padding_size_xlarge"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_shimmer_company_details_1">
+
+                <!-- Text Line 1 -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="14dp"
+                    android:layout_marginBottom="@dimen/margin_padding_size_medium"
+                    android:background="@android:color/darker_gray"
+                    android:elevation="10dp" />
+
+                <!-- Text Line 2 -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="14dp"
+                    android:layout_marginBottom="@dimen/margin_padding_size_medium"
+                    android:background="@android:color/darker_gray"
+                    android:elevation="10dp" />
+
+                <!-- Text Line 3 -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="14dp"
+                    android:background="@android:color/darker_gray"
+                    android:elevation="10dp" />
+
+            </LinearLayout>
+
+            <!-- Interactions Skeleton -->
+            <LinearLayout
+                android:id="@+id/layout_shimmer_post_interactions_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_padding_size_xlarge"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_shimmer_post_content_1">
+
+                <!-- Like Icon and Count -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@android:color/darker_gray"
+                        android:elevation="10dp" />
+
+                    <View
+                        android:layout_width="30dp"
+                        android:layout_height="14dp"
+                        android:layout_marginStart="@dimen/margin_padding_size_medium"
+                        android:background="@android:color/darker_gray"
+                        android:elevation="10dp" />
+
+                </LinearLayout>
+
+                <!-- Comment Icon and Count -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_padding_size_large"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@android:color/darker_gray"
+                        android:elevation="10dp" />
+
+                    <View
+                        android:layout_width="30dp"
+                        android:layout_height="14dp"
+                        android:layout_marginStart="@dimen/margin_padding_size_medium"
+                        android:background="@android:color/darker_gray"
+                        android:elevation="10dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_shimmer_post_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/md_theme_background"
+        app:cardCornerRadius="10dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/md_theme_background"
+            android:padding="@dimen/margin_padding_size_large">
+
+            <!-- Company Details Skeleton -->
+            <LinearLayout
+                android:id="@+id/layout_shimmer_company_details_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <!-- Profile Image Placeholder -->
+                <View
+                    android:id="@+id/skeleton_profile_image_2"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@android:color/darker_gray"
+                    android:elevation="10dp" />
+
+                <!-- Company Name Placeholder -->
+                <View
+                    android:layout_width="100dp"
+                    android:layout_height="16dp"
+                    android:layout_marginStart="@dimen/margin_padding_size_large"
+                    android:background="@android:color/darker_gray"
+                    android:elevation="10dp" />
+
+                <!-- Divider Dot -->
+                <View
+                    android:layout_width="4dp"
+                    android:layout_height="4dp"
+                    android:layout_marginStart="@dimen/margin_padding_size_medium"
+                    android:background="@android:color/darker_gray"
+                    android:elevation="10dp" />
+
+                <!-- Time Placeholder -->
+                <View
+                    android:layout_width="40dp"
+                    android:layout_height="14dp"
+                    android:layout_marginStart="@dimen/margin_padding_size_small"
+                    android:background="@android:color/darker_gray"
+                    android:elevation="10dp" />
+
+            </LinearLayout>
+
+            <!-- Post Content Skeleton -->
+            <LinearLayout
+                android:id="@+id/layout_shimmer_post_content_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_padding_size_xlarge"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_shimmer_company_details_2">
+
+                <!-- Text Line 1 -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="14dp"
+                    android:layout_marginBottom="@dimen/margin_padding_size_medium"
+                    android:background="@android:color/darker_gray"
+                    android:elevation="10dp" />
+
+                <!-- Text Line 2 -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="14dp"
+                    android:layout_marginBottom="@dimen/margin_padding_size_medium"
+                    android:background="@android:color/darker_gray"
+                    android:elevation="10dp" />
+
+                <!-- Text Line 3 -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="14dp"
+                    android:background="@android:color/darker_gray"
+                    android:elevation="10dp" />
+
+            </LinearLayout>
+
+            <!-- Interactions Skeleton -->
+            <LinearLayout
+                android:id="@+id/layout_shimmer_post_interactions_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_padding_size_xlarge"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_shimmer_post_content_2">
+
+                <!-- Like Icon and Count -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@android:color/darker_gray"
+                        android:elevation="10dp" />
+
+                    <View
+                        android:layout_width="30dp"
+                        android:layout_height="14dp"
+                        android:layout_marginStart="@dimen/margin_padding_size_medium"
+                        android:background="@android:color/darker_gray"
+                        android:elevation="10dp" />
+
+                </LinearLayout>
+
+                <!-- Comment Icon and Count -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_padding_size_large"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@android:color/darker_gray"
+                        android:elevation="10dp" />
+
+                    <View
+                        android:layout_width="30dp"
+                        android:layout_height="14dp"
+                        android:layout_marginStart="@dimen/margin_padding_size_medium"
+                        android:background="@android:color/darker_gray"
+                        android:elevation="10dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_shimmer_post_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/md_theme_background"
+        app:cardCornerRadius="10dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/md_theme_background"
+            android:padding="@dimen/margin_padding_size_large">
+
+            <!-- Company Details Skeleton -->
+            <LinearLayout
+                android:id="@+id/layout_shimmer_company_details_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <!-- Profile Image Placeholder -->
+                <View
+                    android:id="@+id/skeleton_profile_image_3"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@android:color/darker_gray"
+                    android:elevation="10dp" />
+
+                <!-- Company Name Placeholder -->
+                <View
+                    android:layout_width="100dp"
+                    android:layout_height="16dp"
+                    android:layout_marginStart="@dimen/margin_padding_size_large"
+                    android:background="@android:color/darker_gray"
+                    android:elevation="10dp" />
+
+                <!-- Divider Dot -->
+                <View
+                    android:layout_width="4dp"
+                    android:layout_height="4dp"
+                    android:layout_marginStart="@dimen/margin_padding_size_medium"
+                    android:background="@android:color/darker_gray"
+                    android:elevation="10dp" />
+
+                <!-- Time Placeholder -->
+                <View
+                    android:layout_width="40dp"
+                    android:layout_height="14dp"
+                    android:layout_marginStart="@dimen/margin_padding_size_small"
+                    android:background="@android:color/darker_gray"
+                    android:elevation="10dp" />
+
+            </LinearLayout>
+
+            <!-- Post Content Skeleton -->
+            <LinearLayout
+                android:id="@+id/layout_shimmer_post_content_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_padding_size_xlarge"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_shimmer_company_details_3">
+
+                <!-- Text Line 1 -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="14dp"
+                    android:layout_marginBottom="@dimen/margin_padding_size_medium"
+                    android:background="@android:color/darker_gray"
+                    android:elevation="10dp" />
+
+                <!-- Text Line 2 -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="14dp"
+                    android:layout_marginBottom="@dimen/margin_padding_size_medium"
+                    android:background="@android:color/darker_gray"
+                    android:elevation="10dp" />
+
+                <!-- Text Line 3 -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="14dp"
+                    android:background="@android:color/darker_gray"
+                    android:elevation="10dp" />
+
+            </LinearLayout>
+
+            <!-- Interactions Skeleton -->
+            <LinearLayout
+                android:id="@+id/layout_shimmer_post_interactions_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_padding_size_xlarge"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_shimmer_post_content_3">
+
+                <!-- Like Icon and Count -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@android:color/darker_gray"
+                        android:elevation="10dp" />
+
+                    <View
+                        android:layout_width="30dp"
+                        android:layout_height="14dp"
+                        android:layout_marginStart="@dimen/margin_padding_size_medium"
+                        android:background="@android:color/darker_gray"
+                        android:elevation="10dp" />
+
+                </LinearLayout>
+
+                <!-- Comment Icon and Count -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_padding_size_large"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@android:color/darker_gray"
+                        android:elevation="10dp" />
+
+                    <View
+                        android:layout_width="30dp"
+                        android:layout_height="14dp"
+                        android:layout_marginStart="@dimen/margin_padding_size_medium"
+                        android:background="@android:color/darker_gray"
+                        android:elevation="10dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_shimmer_post_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/md_theme_background"
+        app:cardCornerRadius="10dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/md_theme_background"
+            android:padding="@dimen/margin_padding_size_large">
+
+            <!-- Company Details Skeleton -->
+            <LinearLayout
+                android:id="@+id/layout_shimmer_company_details_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <!-- Profile Image Placeholder -->
+                <View
+                    android:id="@+id/skeleton_profile_image_4"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@android:color/darker_gray"
+                    android:elevation="10dp" />
+
+                <!-- Company Name Placeholder -->
+                <View
+                    android:layout_width="100dp"
+                    android:layout_height="16dp"
+                    android:layout_marginStart="@dimen/margin_padding_size_large"
+                    android:background="@android:color/darker_gray"
+                    android:elevation="10dp" />
+
+                <!-- Divider Dot -->
+                <View
+                    android:layout_width="4dp"
+                    android:layout_height="4dp"
+                    android:layout_marginStart="@dimen/margin_padding_size_medium"
+                    android:background="@android:color/darker_gray"
+                    android:elevation="10dp" />
+
+                <!-- Time Placeholder -->
+                <View
+                    android:layout_width="40dp"
+                    android:layout_height="14dp"
+                    android:layout_marginStart="@dimen/margin_padding_size_small"
+                    android:background="@android:color/darker_gray"
+                    android:elevation="10dp" />
+
+            </LinearLayout>
+
+            <!-- Post Content Skeleton -->
+            <LinearLayout
+                android:id="@+id/layout_shimmer_post_content_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_padding_size_xlarge"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_shimmer_company_details_4">
+
+                <!-- Text Line 1 -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="14dp"
+                    android:layout_marginBottom="@dimen/margin_padding_size_medium"
+                    android:background="@android:color/darker_gray"
+                    android:elevation="10dp" />
+
+                <!-- Text Line 2 -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="14dp"
+                    android:layout_marginBottom="@dimen/margin_padding_size_medium"
+                    android:background="@android:color/darker_gray"
+                    android:elevation="10dp" />
+
+                <!-- Text Line 3 -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="14dp"
+                    android:background="@android:color/darker_gray"
+                    android:elevation="10dp" />
+
+            </LinearLayout>
+
+            <!-- Interactions Skeleton -->
+            <LinearLayout
+                android:id="@+id/layout_shimmer_post_interactions_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_padding_size_xlarge"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_shimmer_post_content_4">
+
+                <!-- Like Icon and Count -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@android:color/darker_gray"
+                        android:elevation="10dp" />
+
+                    <View
+                        android:layout_width="30dp"
+                        android:layout_height="14dp"
+                        android:layout_marginStart="@dimen/margin_padding_size_medium"
+                        android:background="@android:color/darker_gray"
+                        android:elevation="10dp" />
+
+                </LinearLayout>
+
+                <!-- Comment Icon and Count -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_padding_size_large"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@android:color/darker_gray"
+                        android:elevation="10dp" />
+
+                    <View
+                        android:layout_width="30dp"
+                        android:layout_height="14dp"
+                        android:layout_marginStart="@dimen/margin_padding_size_medium"
+                        android:background="@android:color/darker_gray"
+                        android:elevation="10dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

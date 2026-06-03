@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -53,11 +54,21 @@ class ConversationsFragment : Fragment() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 conversationsViewModel.conversationsUiState.collect { uiState ->
+                    if (uiState.isLoading) {
+                        binding.layoutConversationsTopBar.visibility = View.GONE
+                        binding.conversationsLineSeparator.visibility = View.GONE
+                        binding.rvConversations.visibility = View.GONE
 
-                    if (uiState.isLoading)
-                        binding.progressbarConversations.visibility = View.VISIBLE
-                    else
-                        binding.progressbarConversations.visibility = View.GONE
+                        binding.layoutShimmerConversations.startShimmer()
+                        binding.layoutShimmerConversations.isVisible = true
+                    } else {
+                        binding.layoutShimmerConversations.stopShimmer()
+                        binding.layoutShimmerConversations.isVisible = false
+
+                        binding.layoutConversationsTopBar.visibility = View.VISIBLE
+                        binding.conversationsLineSeparator.visibility = View.VISIBLE
+                        binding.rvConversations.visibility = View.VISIBLE
+                    }
 
                     conversationsAdapter.submitList(uiState.conversations)
                 }

@@ -15,8 +15,6 @@ import java.net.URL
 private val requestOptions = RequestOptions().centerCrop()
 
 fun loadImage(context: Context, imageUrl: String, target: ImageView, placeholderImage: Int = R.drawable.default_profile_pic) {
-    Log.d("ImageLoader", "Loading image from URL: $imageUrl")
-
     Glide.with(context).load(imageUrl)
         .placeholder(placeholderImage)
         .apply(requestOptions)

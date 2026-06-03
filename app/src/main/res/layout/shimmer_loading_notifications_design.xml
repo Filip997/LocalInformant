@@ -1,0 +1,718 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Top Bar -->
+    <LinearLayout
+        android:id="@+id/layout_top_bar_notifications_shimmer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/margin_padding_size_xlarge"
+        android:gravity="center_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <View
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@android:color/darker_gray"
+            android:elevation="10dp"/>
+
+        <View
+            android:layout_width="150dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="@dimen/margin_padding_size_xlarge"
+            android:background="@android:color/darker_gray"
+            android:elevation="10dp"/>
+
+    </LinearLayout>
+
+    <!-- Notifications List -->
+    <LinearLayout
+        android:id="@+id/layout_notifications_list_shimmer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_top_bar_notifications_shimmer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- Notification Item 1 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_padding_size_large">
+
+            <!-- Profile Image -->
+            <View
+                android:id="@+id/skeleton_profile_notif_1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <!-- Notification Text Line 1 -->
+            <View
+                android:id="@+id/skeleton_text_notif_1"
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="@dimen/margin_padding_size_large"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintStart_toEndOf="@+id/skeleton_profile_notif_1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <!-- Notification Text Line 2 (partial) -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="@dimen/margin_padding_size_large"
+                android:layout_marginTop="@dimen/margin_padding_size_small"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintStart_toEndOf="@+id/skeleton_profile_notif_1"
+                app:layout_constraintTop_toBottomOf="@+id/skeleton_text_notif_1"
+                app:layout_constraintEnd_toStartOf="@+id/skeleton_time_notif_1"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <!-- Time -->
+            <View
+                android:id="@+id/skeleton_time_notif_1"
+                android:layout_width="35dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="@dimen/margin_padding_size_medium"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintTop_toTopOf="@+id/skeleton_text_notif_1"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/md_theme_outlineVariant"/>
+
+        <!-- Notification Item 2 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_padding_size_large">
+
+            <!-- Profile Image -->
+            <View
+                android:id="@+id/skeleton_profile_notif_2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <!-- Notification Text Line 1 -->
+            <View
+                android:id="@+id/skeleton_text_notif_2"
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="@dimen/margin_padding_size_large"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintStart_toEndOf="@+id/skeleton_profile_notif_2"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <!-- Notification Text Line 2 (partial) -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="@dimen/margin_padding_size_large"
+                android:layout_marginTop="@dimen/margin_padding_size_small"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintStart_toEndOf="@+id/skeleton_profile_notif_2"
+                app:layout_constraintTop_toBottomOf="@+id/skeleton_text_notif_2"
+                app:layout_constraintEnd_toStartOf="@+id/skeleton_time_notif_2"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <!-- Time -->
+            <View
+                android:id="@+id/skeleton_time_notif_2"
+                android:layout_width="40dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="@dimen/margin_padding_size_medium"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintTop_toTopOf="@+id/skeleton_text_notif_2"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/md_theme_outlineVariant"/>
+
+        <!-- Notification Item 3 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_padding_size_large">
+
+            <!-- Profile Image -->
+            <View
+                android:id="@+id/skeleton_profile_notif_3"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <!-- Notification Text Line 1 -->
+            <View
+                android:id="@+id/skeleton_text_notif_3"
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="@dimen/margin_padding_size_large"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintStart_toEndOf="@+id/skeleton_profile_notif_3"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <!-- Notification Text Line 2 (partial) -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="@dimen/margin_padding_size_large"
+                android:layout_marginTop="@dimen/margin_padding_size_small"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintStart_toEndOf="@+id/skeleton_profile_notif_3"
+                app:layout_constraintTop_toBottomOf="@+id/skeleton_text_notif_3"
+                app:layout_constraintEnd_toStartOf="@+id/skeleton_time_notif_3"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <!-- Time -->
+            <View
+                android:id="@+id/skeleton_time_notif_3"
+                android:layout_width="30dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="@dimen/margin_padding_size_medium"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintTop_toTopOf="@+id/skeleton_text_notif_3"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/md_theme_outlineVariant"/>
+
+        <!-- Notification Item 4 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_padding_size_large">
+
+            <!-- Profile Image -->
+            <View
+                android:id="@+id/skeleton_profile_notif_4"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <!-- Notification Text Line 1 -->
+            <View
+                android:id="@+id/skeleton_text_notif_4"
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="@dimen/margin_padding_size_large"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintStart_toEndOf="@+id/skeleton_profile_notif_4"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <!-- Notification Text Line 2 (partial) -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="@dimen/margin_padding_size_large"
+                android:layout_marginTop="@dimen/margin_padding_size_small"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintStart_toEndOf="@+id/skeleton_profile_notif_4"
+                app:layout_constraintTop_toBottomOf="@+id/skeleton_text_notif_4"
+                app:layout_constraintEnd_toStartOf="@+id/skeleton_time_notif_4"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <!-- Time -->
+            <View
+                android:id="@+id/skeleton_time_notif_4"
+                android:layout_width="45dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="@dimen/margin_padding_size_medium"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintTop_toTopOf="@+id/skeleton_text_notif_4"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/md_theme_outlineVariant"/>
+
+        <!-- Notification Item 5 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_padding_size_large">
+
+            <!-- Profile Image -->
+            <View
+                android:id="@+id/skeleton_profile_notif_5"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <!-- Notification Text Line 1 -->
+            <View
+                android:id="@+id/skeleton_text_notif_5"
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="@dimen/margin_padding_size_large"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintStart_toEndOf="@+id/skeleton_profile_notif_5"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <!-- Notification Text Line 2 (partial) -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="@dimen/margin_padding_size_large"
+                android:layout_marginTop="@dimen/margin_padding_size_small"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintStart_toEndOf="@+id/skeleton_profile_notif_5"
+                app:layout_constraintTop_toBottomOf="@+id/skeleton_text_notif_5"
+                app:layout_constraintEnd_toStartOf="@+id/skeleton_time_notif_5"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <!-- Time -->
+            <View
+                android:id="@+id/skeleton_time_notif_5"
+                android:layout_width="45dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="@dimen/margin_padding_size_medium"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintTop_toTopOf="@+id/skeleton_text_notif_5"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/md_theme_outlineVariant"/>
+
+        <!-- Notification Item 6 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_padding_size_large">
+
+            <!-- Profile Image -->
+            <View
+                android:id="@+id/skeleton_profile_notif_6"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <!-- Notification Text Line 1 -->
+            <View
+                android:id="@+id/skeleton_text_notif_6"
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="@dimen/margin_padding_size_large"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintStart_toEndOf="@+id/skeleton_profile_notif_6"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <!-- Notification Text Line 2 (partial) -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="@dimen/margin_padding_size_large"
+                android:layout_marginTop="@dimen/margin_padding_size_small"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintStart_toEndOf="@+id/skeleton_profile_notif_6"
+                app:layout_constraintTop_toBottomOf="@+id/skeleton_text_notif_6"
+                app:layout_constraintEnd_toStartOf="@+id/skeleton_time_notif_6"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <!-- Time -->
+            <View
+                android:id="@+id/skeleton_time_notif_6"
+                android:layout_width="45dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="@dimen/margin_padding_size_medium"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintTop_toTopOf="@+id/skeleton_text_notif_6"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/md_theme_outlineVariant"/>
+
+        <!-- Notification Item 7 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_padding_size_large">
+
+            <!-- Profile Image -->
+            <View
+                android:id="@+id/skeleton_profile_notif_7"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <!-- Notification Text Line 1 -->
+            <View
+                android:id="@+id/skeleton_text_notif_7"
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="@dimen/margin_padding_size_large"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintStart_toEndOf="@+id/skeleton_profile_notif_7"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <!-- Notification Text Line 2 (partial) -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="@dimen/margin_padding_size_large"
+                android:layout_marginTop="@dimen/margin_padding_size_small"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintStart_toEndOf="@+id/skeleton_profile_notif_7"
+                app:layout_constraintTop_toBottomOf="@+id/skeleton_text_notif_7"
+                app:layout_constraintEnd_toStartOf="@+id/skeleton_time_notif_7"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <!-- Time -->
+            <View
+                android:id="@+id/skeleton_time_notif_7"
+                android:layout_width="45dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="@dimen/margin_padding_size_medium"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintTop_toTopOf="@+id/skeleton_text_notif_7"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/md_theme_outlineVariant"/>
+
+        <!-- Notification Item 8 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_padding_size_large">
+
+            <!-- Profile Image -->
+            <View
+                android:id="@+id/skeleton_profile_notif_8"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <!-- Notification Text Line 1 -->
+            <View
+                android:id="@+id/skeleton_text_notif_8"
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="@dimen/margin_padding_size_large"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintStart_toEndOf="@+id/skeleton_profile_notif_8"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <!-- Notification Text Line 2 (partial) -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="@dimen/margin_padding_size_large"
+                android:layout_marginTop="@dimen/margin_padding_size_small"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintStart_toEndOf="@+id/skeleton_profile_notif_8"
+                app:layout_constraintTop_toBottomOf="@+id/skeleton_text_notif_8"
+                app:layout_constraintEnd_toStartOf="@+id/skeleton_time_notif_8"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <!-- Time -->
+            <View
+                android:id="@+id/skeleton_time_notif_8"
+                android:layout_width="45dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="@dimen/margin_padding_size_medium"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintTop_toTopOf="@+id/skeleton_text_notif_8"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/md_theme_outlineVariant"/>
+
+        <!-- Notification Item 9 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_padding_size_large">
+
+            <!-- Profile Image -->
+            <View
+                android:id="@+id/skeleton_profile_notif_9"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <!-- Notification Text Line 1 -->
+            <View
+                android:id="@+id/skeleton_text_notif_9"
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="@dimen/margin_padding_size_large"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintStart_toEndOf="@+id/skeleton_profile_notif_9"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <!-- Notification Text Line 2 (partial) -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="@dimen/margin_padding_size_large"
+                android:layout_marginTop="@dimen/margin_padding_size_small"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintStart_toEndOf="@+id/skeleton_profile_notif_9"
+                app:layout_constraintTop_toBottomOf="@+id/skeleton_text_notif_9"
+                app:layout_constraintEnd_toStartOf="@+id/skeleton_time_notif_9"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <!-- Time -->
+            <View
+                android:id="@+id/skeleton_time_notif_9"
+                android:layout_width="45dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="@dimen/margin_padding_size_medium"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintTop_toTopOf="@+id/skeleton_text_notif_9"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/md_theme_outlineVariant"/>
+
+        <!-- Notification Item 10 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_padding_size_large">
+
+            <!-- Profile Image -->
+            <View
+                android:id="@+id/skeleton_profile_notif_10"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <!-- Notification Text Line 1 -->
+            <View
+                android:id="@+id/skeleton_text_notif_10"
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="@dimen/margin_padding_size_large"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintStart_toEndOf="@+id/skeleton_profile_notif_10"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <!-- Notification Text Line 2 (partial) -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="@dimen/margin_padding_size_large"
+                android:layout_marginTop="@dimen/margin_padding_size_small"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintStart_toEndOf="@+id/skeleton_profile_notif_10"
+                app:layout_constraintTop_toBottomOf="@+id/skeleton_text_notif_10"
+                app:layout_constraintEnd_toStartOf="@+id/skeleton_time_notif_10"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <!-- Time -->
+            <View
+                android:id="@+id/skeleton_time_notif_10"
+                android:layout_width="45dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="@dimen/margin_padding_size_medium"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintTop_toTopOf="@+id/skeleton_text_notif_10"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/md_theme_outlineVariant"/>
+
+        <!-- Notification Item 11 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_padding_size_large">
+
+            <!-- Profile Image -->
+            <View
+                android:id="@+id/skeleton_profile_notif_11"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <!-- Notification Text Line 1 -->
+            <View
+                android:id="@+id/skeleton_text_notif_11"
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="@dimen/margin_padding_size_large"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintStart_toEndOf="@+id/skeleton_profile_notif_11"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <!-- Notification Text Line 2 (partial) -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="@dimen/margin_padding_size_large"
+                android:layout_marginTop="@dimen/margin_padding_size_small"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintStart_toEndOf="@+id/skeleton_profile_notif_11"
+                app:layout_constraintTop_toBottomOf="@+id/skeleton_text_notif_11"
+                app:layout_constraintEnd_toStartOf="@+id/skeleton_time_notif_11"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <!-- Time -->
+            <View
+                android:id="@+id/skeleton_time_notif_11"
+                android:layout_width="45dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="@dimen/margin_padding_size_medium"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintTop_toTopOf="@+id/skeleton_text_notif_11"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/md_theme_outlineVariant"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

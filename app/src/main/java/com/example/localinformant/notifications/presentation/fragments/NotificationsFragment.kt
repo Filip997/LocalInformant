@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -58,10 +59,19 @@ class NotificationsFragment : Fragment() {
                 notificationsViewModel.uiState.collect { state ->
                     binding.swipeRefreshLayoutNotifications.isRefreshing = false
 
-                    if (state.isLoading)
-                        binding.progressbarNotifications.visibility = View.VISIBLE
-                    else
-                        binding.progressbarNotifications.visibility = View.GONE
+                    if (state.isLoading) {
+                        binding.layoutTopBarNotifications.visibility = View.GONE
+                        binding.swipeRefreshLayoutNotifications.visibility = View.GONE
+
+                        binding.layoutShimmerNotifications.startShimmer()
+                        binding.layoutShimmerNotifications.isVisible = true
+                    } else {
+                        binding.layoutShimmerNotifications.stopShimmer()
+                        binding.layoutShimmerNotifications.isVisible = false
+
+                        binding.layoutTopBarNotifications.visibility = View.VISIBLE
+                        binding.swipeRefreshLayoutNotifications.visibility = View.VISIBLE
+                    }
 
                     myNotificationManager.resetNotificationsCount()
                     notificationsAdapter.submitList(state.notifications)

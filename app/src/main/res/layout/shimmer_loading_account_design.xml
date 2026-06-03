@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Top Bar -->
+    <FrameLayout
+        android:id="@+id/layout_top_bar_shimmer"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:paddingHorizontal="@dimen/margin_padding_size_large"
+        android:background="@color/md_theme_primaryContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- User Info Section -->
+    <LinearLayout
+        android:id="@+id/layout_user_info_shimmer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_padding_size_xlarge"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_top_bar_shimmer"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Followers Skeleton -->
+            <LinearLayout
+                android:id="@+id/layout_followers_skeleton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/layout_profile_image_skeleton"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <View
+                    android:layout_width="70dp"
+                    android:layout_height="18dp"
+                    android:background="@android:color/darker_gray"
+                    android:layout_marginBottom="@dimen/margin_padding_size_medium"
+                    android:elevation="10dp"/>
+
+                <View
+                    android:layout_width="40dp"
+                    android:layout_height="16dp"
+                    android:background="@android:color/darker_gray"
+                    android:elevation="10dp"/>
+
+            </LinearLayout>
+
+            <!-- Profile Image Skeleton -->
+            <FrameLayout
+                android:id="@+id/layout_profile_image_skeleton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_padding_size_large"
+                android:paddingHorizontal="@dimen/margin_padding_size_medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <View
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@android:color/darker_gray"
+                    android:elevation="10dp"/>
+
+                <View
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="bottom|end"
+                    android:layout_marginEnd="@dimen/margin_padding_size_xlarge"
+                    android:layout_marginBottom="@dimen/margin_padding_size_medium"
+                    android:background="@android:color/darker_gray"
+                    android:elevation="10dp"/>
+
+            </FrameLayout>
+
+            <!-- Full Name Skeleton -->
+            <View
+                android:id="@+id/skeleton_full_name"
+                android:layout_width="120dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="@dimen/margin_padding_size_medium"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_profile_image_skeleton"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <!-- Following Skeleton -->
+            <LinearLayout
+                android:id="@+id/layout_following_skeleton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                app:layout_constraintStart_toEndOf="@+id/layout_profile_image_skeleton"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <View
+                    android:layout_width="70dp"
+                    android:layout_height="18dp"
+                    android:background="@android:color/darker_gray"
+                    android:layout_marginBottom="@dimen/margin_padding_size_medium"
+                    android:elevation="10dp"/>
+
+                <View
+                    android:layout_width="40dp"
+                    android:layout_height="16dp"
+                    android:background="@android:color/darker_gray"
+                    android:elevation="10dp"/>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Buttons Skeleton -->
+        <LinearLayout
+            android:id="@+id/layout_buttons_skeleton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/margin_padding_size_xxxxlarge"
+            android:layout_marginTop="@dimen/margin_padding_size_xlarge"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+
+            <View
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"
+                android:layout_marginEnd="@dimen/margin_padding_size_large"/>
+
+            <View
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:background="@android:color/darker_gray"
+                android:elevation="10dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Divider -->
+    <View
+        android:id="@+id/divider_skeleton"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="@dimen/margin_padding_size_large"
+        android:background="@color/md_theme_outlineVariant"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_user_info_shimmer"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Tabs Skeleton -->
+    <LinearLayout
+        android:id="@+id/layout_tabs_skeleton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/margin_padding_size_xlarge"
+        android:paddingHorizontal="@dimen/margin_padding_size_xxxxlarge"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider_skeleton"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:background="@android:color/darker_gray"
+            android:layout_marginEnd="@dimen/margin_padding_size_medium"
+            android:elevation="10dp"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:background="@android:color/darker_gray"
+            android:layout_marginStart="@dimen/margin_padding_size_medium"
+            android:elevation="10dp"/>
+
+    </LinearLayout>
+
+    <!-- Posts List Skeleton -->
+    <LinearLayout
+        android:id="@+id/layout_posts_skeleton"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/margin_padding_size_xlarge"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_tabs_skeleton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- Post Card 1 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_padding_size_small"
+            android:layout_marginVertical="@dimen/margin_padding_size_small"
+            app:cardCornerRadius="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_padding_size_xlarge">
+
+                <!-- Post Header -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="@dimen/margin_padding_size_xlarge">
+
+                    <View
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@android:color/darker_gray"
+                        android:elevation="10dp"/>
+
+                    <View
+                        android:layout_width="100dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="@dimen/margin_padding_size_large"
+                        android:background="@android:color/darker_gray"
+                        android:elevation="10dp"/>
+
+                </LinearLayout>
+
+                <!-- Post Text Lines -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="14dp"
+                    android:background="@android:color/darker_gray"
+                    android:elevation="10dp"
+                    android:layout_marginBottom="@dimen/margin_padding_size_medium"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="14dp"
+                    android:background="@android:color/darker_gray"
+                    android:elevation="10dp"
+                    android:layout_marginBottom="@dimen/margin_padding_size_xlarge"/>
+
+                <!-- Interactions -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@android:color/darker_gray"
+                        android:elevation="10dp"/>
+
+                    <View
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="@dimen/margin_padding_size_large"
+                        android:background="@android:color/darker_gray"
+                        android:elevation="10dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Post Card 2 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_padding_size_small"
+            android:layout_marginVertical="@dimen/margin_padding_size_small"
+            app:cardCornerRadius="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_padding_size_xlarge">
+
+                <!-- Post Header -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="@dimen/margin_padding_size_xlarge">
+
+                    <View
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@android:color/darker_gray"
+                        android:elevation="10dp"/>
+
+                    <View
+                        android:layout_width="100dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="@dimen/margin_padding_size_large"
+                        android:background="@android:color/darker_gray"
+                        android:elevation="10dp"/>
+
+                </LinearLayout>
+
+                <!-- Post Text Lines -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="14dp"
+                    android:background="@android:color/darker_gray"
+                    android:elevation="10dp"
+                    android:layout_marginBottom="@dimen/margin_padding_size_medium"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="14dp"
+                    android:background="@android:color/darker_gray"
+                    android:elevation="10dp"
+                    android:layout_marginBottom="@dimen/margin_padding_size_xlarge"/>
+
+                <!-- Interactions -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@android:color/darker_gray"
+                        android:elevation="10dp"/>
+
+                    <View
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="@dimen/margin_padding_size_large"
+                        android:background="@android:color/darker_gray"
+                        android:elevation="10dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
