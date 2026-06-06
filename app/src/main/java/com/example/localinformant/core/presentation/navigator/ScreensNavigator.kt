@@ -13,6 +13,7 @@ import com.example.localinformant.auth.presentation.activities.RegisterActivity
 import com.example.localinformant.conversations.presentation.fragments.NewConversationDialogFragment
 import com.example.localinformant.core.presentation.util.NavFunctions
 import com.example.localinformant.core.presentation.util.NavFunctions.isFragmentInBackStack
+import com.example.localinformant.home.presentation.fragments.PostImagesDialogFragment
 import com.example.localinformant.setup.presentation.activities.LanguageActivity
 import com.example.localinformant.setup.presentation.activities.LoginChooserActivity
 import com.example.localinformant.main.presentation.activities.MainActivity
@@ -184,6 +185,13 @@ class ScreensNavigator @Inject constructor(
         NewConversationDialogFragment().show(
             (activity as AppCompatActivity).supportFragmentManager,
             "NewConversationDialogFragment"
+        )
+    }
+
+    fun openPostImagesDialogFragment(imageUrls: List<String>, position: Int) {
+        PostImagesDialogFragment.newInstance(imageUrls, position).show(
+            (activity as AppCompatActivity).supportFragmentManager,
+            "PostImagesDialogFragment"
         )
     }
 }

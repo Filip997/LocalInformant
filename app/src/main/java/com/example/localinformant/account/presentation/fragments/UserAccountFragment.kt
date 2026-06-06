@@ -320,6 +320,9 @@ class UserAccountFragment : Fragment() {
 
                 screensNavigator.navigateToMyAccountFragment(bundle)
             },
+            onPostImagesClick = { imageUrls, position ->
+                screensNavigator.openPostImagesDialogFragment(imageUrls, position)
+            },
             submitReaction = { postId ->
                 userAccountViewModel.submitReaction(postId)
             },

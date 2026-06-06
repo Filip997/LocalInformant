@@ -6,4 +6,6 @@ object IntentKeys {
     const val USER_ID = "userId"
     const val POST_ID = "postId"
     const val CONVERSATION_ID = "conversationId"
+    const val POST_IMAGES = "postImages"
+    const val IMAGE_POSITION = "imagePosition"
 }

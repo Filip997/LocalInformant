@@ -10,7 +10,8 @@ import com.example.localinformant.databinding.ItemPostImageAdapterDesignBinding
 
 class PostImagesAdapter(
     private val context: Context,
-    private val postImageUrls: List<String>
+    private val postImageUrls: List<String>,
+    private val onPostImagesClick: (List<String>, Int) -> Unit
 ) : RecyclerView.Adapter<PostImagesAdapter.PostImagesViewHolder>() {
 
     class PostImagesViewHolder(binding: ItemPostImageAdapterDesignBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -30,6 +31,10 @@ class PostImagesAdapter(
             target = holder.postImage,
             placeholderImage = R.drawable.default_placeholder_image
         )
+
+        holder.postImage.setOnClickListener {
+            onPostImagesClick.invoke(postImageUrls, position)
+        }
     }
 
     override fun getItemCount() = postImageUrls.size

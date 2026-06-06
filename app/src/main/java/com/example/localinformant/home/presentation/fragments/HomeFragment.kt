@@ -147,6 +147,9 @@ class HomeFragment : Fragment() {
 
                 screensNavigator.navigateToMyAccountFragment(bundle)
             },
+            onPostImagesClick = { imageUrls, position ->
+                screensNavigator.openPostImagesDialogFragment(imageUrls, position)
+            },
             submitReaction = { postId ->
                 homeViewModel.submitReaction(postId)
             },

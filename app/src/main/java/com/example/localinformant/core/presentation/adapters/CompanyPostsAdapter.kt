@@ -26,6 +26,7 @@ import com.example.localinformant.home.presentation.adapters.PostImagesAdapter
 class CompanyPostsAdapter(
     private val context: Context,
     private val goToUserProfile: (String, UserType) -> Unit,
+    private val onPostImagesClick: (List<String>, Int) -> Unit,
     private val submitReaction: (String) -> Unit,
     private val openReactions: (List<ReactionUi>) -> Unit,
     private val onToggleComments: (String) -> Unit,
@@ -123,6 +124,9 @@ class CompanyPostsAdapter(
                     imageUrl = currentPostUiState.companyProfileImageUrl,
                     target = holder.companyPostProfileImage
                 )
+                holder.companyPostProfileImage.setOnClickListener {
+                    goToUserProfile.invoke(currentPostUiState.companyId, UserType.COMPANY)
+                }
 
                 holder.companyPostName.text = currentPostUiState.companyName
                 holder.companyPostName.setOnClickListener {
@@ -142,6 +146,10 @@ class CompanyPostsAdapter(
                     )
                 } else {
                     holder.layoutPostImages.visibility = View.GONE
+                }
+
+                holder.layoutPostImages.setOnClickListener {
+                    onPostImagesClick.invoke(currentPostUiState.postImageUrls, holder.postImagesViewPager.currentItem)
                 }
 
                 holder.postLikeBtn.setImageResource(
@@ -199,7 +207,7 @@ class CompanyPostsAdapter(
     }
 
     private fun setupPostImagesAdapter(viewPager: ViewPager2, dotsLayout: LinearLayout, postImageUrls: List<String>) {
-        viewPager.adapter = PostImagesAdapter(context, postImageUrls)
+        viewPager.adapter = PostImagesAdapter(context, postImageUrls, onPostImagesClick)
 
         viewPager.post {
             if (postImageUrls.size > 1) {
