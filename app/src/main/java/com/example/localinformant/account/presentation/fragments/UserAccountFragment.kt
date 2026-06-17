@@ -1,10 +1,12 @@
 package com.example.localinformant.account.presentation.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -34,6 +36,8 @@ import com.example.localinformant.account.presentation.util.FollowersFollowingPo
 import com.example.localinformant.core.presentation.dialogs.CustomInfoDialog
 import com.example.localinformant.core.presentation.util.toString
 import com.example.localinformant.home.presentation.events.SubmitCommentEvent
+import kotlin.math.abs
+import androidx.core.graphics.drawable.toDrawable
 
 @AndroidEntryPoint
 class UserAccountFragment : Fragment() {
@@ -94,6 +98,7 @@ class UserAccountFragment : Fragment() {
                     if (state.error == null) {
                         if (state.isLoading) {
                             binding.layoutTopBarAccount.visibility = View.GONE
+                            binding.toolbarCollapsedAccount.visibility = View.GONE
                             binding.layoutUserInfoAccount.visibility = View.GONE
                             binding.layoutPersonReactionsCommentsAccount.visibility = View.GONE
                             binding.layoutPostsAccount.visibility = View.GONE
@@ -105,6 +110,7 @@ class UserAccountFragment : Fragment() {
                             binding.layoutShimmerAccount.isVisible = false
 
                             binding.layoutTopBarAccount.visibility = View.VISIBLE
+                            binding.toolbarCollapsedAccount.visibility = View.VISIBLE
                             binding.layoutUserInfoAccount.visibility = View.VISIBLE
                             binding.layoutPersonReactionsCommentsAccount.visibility = View.VISIBLE
                             binding.layoutPostsAccount.visibility = View.VISIBLE
@@ -132,12 +138,14 @@ class UserAccountFragment : Fragment() {
                                 binding.layoutUserFollowersAccount.visibility = View.GONE
                                 binding.tglbtnFollowAccount.visibility = View.GONE
                                 binding.layoutPersonReactionsCommentsAccount.visibility = View.VISIBLE
+                                binding.lineSeparationAccount.visibility = View.VISIBLE
                             }
 
                             UserType.COMPANY -> {
                                 binding.layoutUserFollowersAccount.visibility = View.VISIBLE
                                 binding.tglbtnFollowAccount.visibility = View.VISIBLE
                                 binding.layoutPersonReactionsCommentsAccount.visibility = View.GONE
+                                binding.lineSeparationAccount.visibility = View.GONE
                             }
 
                             null -> {
@@ -154,16 +162,27 @@ class UserAccountFragment : Fragment() {
                             target = binding.ivUserProfilePictureAccount
                         )
 
+                        loadImage(
+                            context = requireContext(),
+                            imageUrl = state.userAccountDetails.userProfileImage,
+                            target = binding.ivUserProfilePictureCollapsedAccount
+                        )
+
                         binding.tvUserFullNameAccount.text = state.userAccountDetails.userName
+                        binding.tvUserFullNameCollapsedAccount.text = state.userAccountDetails.userName
 
                         if (state.userAccountDetails.isCurrentUser) {
                             binding.ivBackArrowAccount.visibility = View.GONE
+                            binding.ivBackArrowCollapsedAccount.visibility = View.GONE
                             binding.ivSettingsAccount.visibility = View.VISIBLE
+                            binding.ivSettingsCollapsedAccount.visibility = View.VISIBLE
                             binding.layoutEditProfilePictureAccount.visibility = View.VISIBLE
                             binding.layoutButtonsAccount.visibility = View.GONE
                         } else {
                             binding.ivBackArrowAccount.visibility = View.VISIBLE
+                            binding.ivBackArrowCollapsedAccount.visibility = View.VISIBLE
                             binding.ivSettingsAccount.visibility = View.GONE
+                            binding.ivSettingsCollapsedAccount.visibility = View.GONE
                             binding.layoutEditProfilePictureAccount.visibility = View.GONE
                             binding.layoutButtonsAccount.visibility = View.VISIBLE
                             binding.tglbtnFollowAccount.isChecked = state.userAccountDetails.isUserFollowed
@@ -356,7 +375,15 @@ class UserAccountFragment : Fragment() {
             screensNavigator.onBackPressed()
         }
 
+        binding.ivBackArrowCollapsedAccount.setOnClickListener {
+            screensNavigator.onBackPressed()
+        }
+
         binding.ivSettingsAccount.setOnClickListener {
+            screensNavigator.openSettingsSideSheet()
+        }
+
+        binding.ivSettingsCollapsedAccount.setOnClickListener {
             screensNavigator.openSettingsSideSheet()
         }
 
@@ -385,15 +412,31 @@ class UserAccountFragment : Fragment() {
         }
 
         binding.rgTabsAccount.setOnCheckedChangeListener { group, checkedId ->
-                when(checkedId) {
-                    R.id.rb_reactions_person_account -> {
-                        userAccountViewModel.getPostsWherePersonReacted(userId)
-                    }
-
-                    R.id.rb_comments_person_account -> {
-                        userAccountViewModel.getPostsWherePersonCommented(userId)
-                    }
+            when (checkedId) {
+                R.id.rb_reactions_person_account -> {
+                    userAccountViewModel.getPostsWherePersonReacted(userId)
                 }
+
+                R.id.rb_comments_person_account -> {
+                    userAccountViewModel.getPostsWherePersonCommented(userId)
+                }
+            }
+        }
+
+        binding.appBarLayoutAccount.addOnOffsetChangedListener { appBar, verticalOffset ->
+            val isCollapsed = abs(verticalOffset) >= appBar.totalScrollRange
+
+            if (isCollapsed) {
+                binding.toolbarCollapsedAccount.background =
+                    ContextCompat.getColor(requireContext(), R.color.md_theme_primaryContainer)
+                        .toDrawable()
+                binding.toolbarCollapsedAccount.isVisible = true
+            } else {
+                binding.toolbarCollapsedAccount.background =
+                    ContextCompat.getColor(requireContext(), android.R.color.transparent)
+                        .toDrawable()
+                binding.toolbarCollapsedAccount.isVisible = false
+            }
         }
 
         binding.rvPostsAccount.addOnScrollListener(object : RecyclerView.OnScrollListener() {
