@@ -41,6 +41,8 @@ fun Company.toDto(): CompanyDto {
         email = email,
         firstName = firstName,
         lastName = lastName,
+        address = address,
+        phoneNumber = phoneNumber,
         status = status?.name ?: "",
         token = token,
         followers = followers,

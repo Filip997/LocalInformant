@@ -16,7 +16,13 @@ class FollowUnfollowCompanyUseCase @Inject constructor(
 ) {
 
     suspend operator fun invoke(userId: String?, shouldFollow: Boolean): Result<User, NetworkError> {
-        val currentUserType = preferencesRepository.getUserType()?.let { UserType.valueOf(it) }
+        val currentUserType = preferencesRepository.getUserType()?.let {
+            if (it.isNotEmpty()) {
+                UserType.valueOf(it)
+            } else {
+                null
+            }
+        }
 
         return if (currentUserType != null && userId != null) {
             val result = if (shouldFollow) {

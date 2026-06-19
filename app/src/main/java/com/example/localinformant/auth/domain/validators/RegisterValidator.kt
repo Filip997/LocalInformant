@@ -27,6 +27,22 @@ class RegisterValidator @Inject constructor(
         }
     }
 
+    fun validateAddress(address: String): ValidationError? {
+        return if (address.isEmpty()) {
+            ValidationError.EMPTY_FIELD
+        } else {
+            null
+        }
+    }
+
+    fun validatePhoneNumber(phoneNumber: String): ValidationError? {
+        return if (phoneNumber.isEmpty()) {
+            ValidationError.EMPTY_FIELD
+        } else {
+            null
+        }
+    }
+
     fun validateFirstName(firstName: String): ValidationError? {
         return if (firstName.isEmpty()) {
             ValidationError.EMPTY_FIELD
@@ -87,6 +103,8 @@ class RegisterValidator @Inject constructor(
         userType: UserType,
         companyNameError: ValidationError?,
         companyEmailError: ValidationError?,
+        addressError: ValidationError?,
+        phoneNumberError: ValidationError?,
         firstNameError: ValidationError?,
         lastNameError: ValidationError?,
         emailError: ValidationError?,
@@ -99,6 +117,7 @@ class RegisterValidator @Inject constructor(
                     && emailError == null && passwordError == null
                     && confirmPasswordError == null && isAgreementChecked
             UserType.COMPANY -> companyNameError == null && companyEmailError == null
+                    && addressError == null && phoneNumberError == null
                     && firstNameError == null && lastNameError == null
                     && emailError == null && passwordError == null
                     && confirmPasswordError == null && isAgreementChecked

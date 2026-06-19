@@ -14,7 +14,13 @@ class UpdateCurrentUserStatusUseCase @Inject constructor(
 ) {
 
     suspend operator fun invoke(status: UserStatus): Result<Unit, NetworkError> {
-        val userType = preferencesRepository.getUserType()?.let { UserType.valueOf(it) }
+        val userType = preferencesRepository.getUserType()?.let {
+            if (it.isNotEmpty()) {
+                UserType.valueOf(it)
+            } else {
+                null
+            }
+        }
 
         return if (userType != null) {
             mainRepository.changeUserStatus(userType, status)

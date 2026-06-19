@@ -9,6 +9,8 @@ data class CompanyDto(
     val email: String = "",
     val firstName: String = "",
     val lastName: String = "",
+    val address: String = "",
+    val phoneNumber: String = "",
     val status: String = "",
     val token: String = "",
     val followers: List<String> = listOf(),

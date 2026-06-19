@@ -15,10 +15,16 @@ class GetPostsByFollowedCompaniesUseCase @Inject constructor(
     private var followedUsersIds: List<String> = listOf()
 
     suspend operator fun invoke(isRefreshing: Boolean = true): Result<List<PostWithCompany>, NetworkError> {
-        val userType = preferencesRepository.getUserType()
+        val userType = preferencesRepository.getUserType()?.let {
+            if (it.isNotEmpty()) {
+                UserType.valueOf(it)
+            } else {
+                null
+            }
+        } ?: return Result.Error(NetworkError.UNKNOWN)
 
         if (isRefreshing) {
-            followedUsersIds = when (UserType.valueOf(userType!!)) {
+            followedUsersIds = when (userType) {
                 UserType.PERSON -> {
                     val person = preferencesRepository.getPerson()
                     person?.following ?: listOf()

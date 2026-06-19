@@ -11,6 +11,8 @@ sealed class RegisterUserData {
     data class Company(
         val companyName: String,
         val companyEmail: String,
+        val address: String,
+        val phoneNumber: String,
         val firstName: String,
         val lastName: String,
         val email: String,

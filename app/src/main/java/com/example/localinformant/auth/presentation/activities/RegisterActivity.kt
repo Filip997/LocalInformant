@@ -63,6 +63,14 @@ class RegisterActivity : BaseActivity() {
             text?.let { registerViewModel.onCompanyEmailChange(it.toString()) }
         }
 
+        binding.tilRegisterAddress.editText?.doOnTextChanged { text, _, _, _ ->
+            text?.let { registerViewModel.onAddressChange(it.toString()) }
+        }
+
+        binding.tilRegisterPhoneNumber.editText?.doOnTextChanged { text, _, _, _ ->
+            text?.let { registerViewModel.onPhoneNumberChange(it.toString()) }
+        }
+
         binding.tilRegisterFirstName.editText?.doOnTextChanged { text, _, _, _ ->
             text?.let { registerViewModel.onFirstNameChange(it.toString()) }
         }
@@ -111,6 +119,10 @@ class RegisterActivity : BaseActivity() {
                             binding.tilRegisterCompanyName.visibility = View.GONE
                             binding.tvRegisterCompanyEmailText.visibility = View.GONE
                             binding.tilRegisterCompanyEmail.visibility = View.GONE
+                            binding.tvRegisterAddressText.visibility = View.GONE
+                            binding.tilRegisterAddress.visibility = View.GONE
+                            binding.tvRegisterPhoneNumberText.visibility = View.GONE
+                            binding.tilRegisterPhoneNumber.visibility = View.GONE
                         }
                         UserType.COMPANY -> {
                             val params = binding.tvRegisterFirstNameText.layoutParams as ViewGroup.MarginLayoutParams
@@ -126,6 +138,10 @@ class RegisterActivity : BaseActivity() {
                             binding.tilRegisterCompanyName.visibility = View.VISIBLE
                             binding.tvRegisterCompanyEmailText.visibility = View.VISIBLE
                             binding.tilRegisterCompanyEmail.visibility = View.VISIBLE
+                            binding.tvRegisterAddressText.visibility = View.VISIBLE
+                            binding.tilRegisterAddress.visibility = View.VISIBLE
+                            binding.tvRegisterPhoneNumberText.visibility = View.VISIBLE
+                            binding.tilRegisterPhoneNumber.visibility = View.VISIBLE
 
                             binding.tvRegisterFirstNameText.text = getString(R.string.your_first_name)
                             binding.tvRegisterLastNameText.text = getString(R.string.your_last_name)
@@ -140,6 +156,10 @@ class RegisterActivity : BaseActivity() {
                             binding.tilRegisterCompanyName.visibility = View.GONE
                             binding.tvRegisterCompanyEmailText.visibility = View.GONE
                             binding.tilRegisterCompanyEmail.visibility = View.GONE
+                            binding.tvRegisterAddressText.visibility = View.GONE
+                            binding.tilRegisterAddress.visibility = View.GONE
+                            binding.tvRegisterPhoneNumberText.visibility = View.GONE
+                            binding.tilRegisterPhoneNumber.visibility = View.GONE
                         }
                     }
 
@@ -198,6 +218,50 @@ class RegisterActivity : BaseActivity() {
 
                             else -> {
                                 binding.tilRegisterCompanyEmail.apply {
+                                    isErrorEnabled = false
+                                    endIconMode = TextInputLayout.END_ICON_CLEAR_TEXT
+                                }
+                            }
+                        }
+                    }
+
+                    if (state.address != null) {
+                        when (state.addressError) {
+                            ValidationError.EMPTY_FIELD -> {
+                                binding.tilRegisterAddress.apply {
+                                    isErrorEnabled = true
+                                    error = context.getString(R.string.empty_field)
+                                    endIconMode = TextInputLayout.END_ICON_CUSTOM
+                                    endIconDrawable =
+                                        ContextCompat.getDrawable(context, R.drawable.ic_error)
+                                    boxStrokeErrorColor
+                                }
+                            }
+
+                            else -> {
+                                binding.tilRegisterAddress.apply {
+                                    isErrorEnabled = false
+                                    endIconMode = TextInputLayout.END_ICON_CLEAR_TEXT
+                                }
+                            }
+                        }
+                    }
+
+                    if (state.phoneNumber != null) {
+                        when (state.phoneNumberError) {
+                            ValidationError.EMPTY_FIELD -> {
+                                binding.tilRegisterPhoneNumber.apply {
+                                    isErrorEnabled = true
+                                    error = context.getString(R.string.empty_field)
+                                    endIconMode = TextInputLayout.END_ICON_CUSTOM
+                                    endIconDrawable =
+                                        ContextCompat.getDrawable(context, R.drawable.ic_error)
+                                    boxStrokeErrorColor
+                                }
+                            }
+
+                            else -> {
+                                binding.tilRegisterPhoneNumber.apply {
                                     isErrorEnabled = false
                                     endIconMode = TextInputLayout.END_ICON_CLEAR_TEXT
                                 }

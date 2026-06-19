@@ -108,4 +108,8 @@
     <string name="at">во</string>
     <string name="start_a_conversation">Започни разговор</string>
     <string name="you">Ти</string>
+    <string name="address">Адреса</string>
+    <string name="phone_number">Телефонски број</string>
+    <string name="enter_your_address">Внесете ја вашата адреса</string>
+    <string name="enter_your_phone_number">Внесете го вашиот телефонски број</string>
 </resources>

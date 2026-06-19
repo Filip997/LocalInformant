@@ -136,6 +136,7 @@ class UserAccountFragment : Fragment() {
                             UserType.PERSON -> {
                                 binding.layoutUserFollowersAccount.visibility = View.GONE
                                 binding.tglbtnFollowAccount.visibility = View.GONE
+                                binding.layoutCompanyDetailsAccount.visibility = View.GONE
                                 binding.layoutPersonReactionsCommentsAccount.visibility = View.VISIBLE
                                 binding.lineSeparationAccount.visibility = View.VISIBLE
                             }
@@ -143,6 +144,9 @@ class UserAccountFragment : Fragment() {
                             UserType.COMPANY -> {
                                 binding.layoutUserFollowersAccount.visibility = View.VISIBLE
                                 binding.tglbtnFollowAccount.visibility = View.VISIBLE
+                                binding.layoutCompanyDetailsAccount.visibility = View.VISIBLE
+                                binding.tvCompanyAddressAccount.text = state.userAccountDetails.address
+                                binding.tvCompanyPhoneNumberAccount.text = state.userAccountDetails.phoneNumber
                                 binding.layoutPersonReactionsCommentsAccount.visibility = View.GONE
                                 binding.lineSeparationAccount.visibility = View.GONE
                             }

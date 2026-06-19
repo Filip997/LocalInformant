@@ -42,6 +42,8 @@ fun CompanyDto.toDomain(): Company {
         email = email,
         firstName = firstName,
         lastName = lastName,
+        address = address,
+        phoneNumber = phoneNumber,
         status = UserStatus.valueOf(status),
         token = token,
         followers = followers,

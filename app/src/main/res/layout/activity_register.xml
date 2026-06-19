@@ -124,6 +124,78 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
+                android:id="@+id/tv_register_address_text"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="@dimen/margin_padding_size_xxlarge"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@string/address"
+                android:textSize="@dimen/text_size_large"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/til_register_company_email" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_register_address"
+                style="@style/LoginTextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_padding_size_medium"
+                android:hint="@string/enter_your_address"
+                app:endIconMode="clear_text"
+                app:helperTextEnabled="true"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_register_address_text"
+                app:startIconDrawable="@drawable/ic_address">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:maxLength="100"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tv_register_phone_number_text"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="@dimen/margin_padding_size_xxlarge"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@string/phone_number"
+                android:textSize="@dimen/text_size_large"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/til_register_address" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_register_phone_number"
+                style="@style/LoginTextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_padding_size_medium"
+                android:hint="@string/enter_your_phone_number"
+                app:endIconMode="clear_text"
+                app:helperTextEnabled="true"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_register_phone_number_text"
+                app:startIconDrawable="@drawable/ic_phone">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:maxLength="100"
+                    android:layout_height="wrap_content"
+                    android:inputType="number" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
                 android:id="@+id/tv_register_first_name_text"
                 android:layout_width="wrap_content"
                 android:layout_marginTop="@dimen/margin_padding_size_xxlarge"
@@ -133,7 +205,7 @@
                 android:textSize="@dimen/text_size_large"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/til_register_company_email" />
+                app:layout_constraintTop_toBottomOf="@id/til_register_phone_number" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_register_first_name"

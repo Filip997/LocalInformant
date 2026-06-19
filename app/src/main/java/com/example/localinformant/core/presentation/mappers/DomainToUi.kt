@@ -109,6 +109,8 @@ fun UserAccountDetails.toUi(): UserAccountDetailsUi {
                 isUserFollowed = isUserFollowed,
                 userProfileImage = user.profileImageUrl,
                 userName = user.fullName,
+                address = "",
+                phoneNumber = "",
                 followers = listOf(),
                 following = user.following,
                 postsUi = posts.map { it.toUi() }
@@ -122,6 +124,8 @@ fun UserAccountDetails.toUi(): UserAccountDetailsUi {
                 isUserFollowed = isUserFollowed,
                 userProfileImage = user.companyProfileImageUrl,
                 userName = user.companyName,
+                address = user.address,
+                phoneNumber = user.phoneNumber,
                 followers = user.followers,
                 following = user.following,
                 postsUi = posts.map { it.toUi() }

@@ -9,7 +9,13 @@ class GetCurrentUserProfileImageUseCase @Inject constructor(
 ) {
 
     operator fun invoke(): String {
-        val userType = preferencesRepository.getUserType()?.let { UserType.valueOf(it) }
+        val userType = preferencesRepository.getUserType()?.let {
+            if (it.isNotEmpty()) {
+                UserType.valueOf(it)
+            } else {
+                null
+            }
+        }
 
         return if (userType != null) {
             when(userType) {

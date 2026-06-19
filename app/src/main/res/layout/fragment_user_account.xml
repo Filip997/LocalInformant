@@ -59,7 +59,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="@dimen/margin_padding_size_xlarge"
+                    android:padding="@dimen/margin_padding_size_large"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
@@ -236,6 +236,79 @@
 
                     </LinearLayout>
 
+                    <LinearLayout
+                        android:id="@+id/layout_company_details_account"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="@dimen/margin_padding_size_xlarge"
+                        android:padding="@dimen/margin_padding_size_medium"
+                        android:background="@drawable/bg_change_password_layout">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="@dimen/margin_padding_size_small">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/address"
+                                android:textSize="@dimen/text_size_large"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/margin_padding_size_xsmall"
+                                android:text=":"
+                                android:textSize="@dimen/text_size_large"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tv_company_address_account"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/margin_padding_size_medium"
+                                android:textSize="@dimen/text_size_large"
+                                tools:text="Partizanska bb" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="@dimen/margin_padding_size_small">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/phone_number"
+                                android:textSize="@dimen/text_size_large"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/margin_padding_size_xsmall"
+                                android:text=":"
+                                android:textSize="@dimen/text_size_large"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tv_company_phone_number_account"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/margin_padding_size_medium"
+                                android:textSize="@dimen/text_size_large"
+                                tools:text="070 111 222" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
                 </LinearLayout>
 
                 <View
@@ -298,7 +371,6 @@
                         android:layout_marginStart="@dimen/margin_padding_size_medium"
                         android:layout_toEndOf="@id/iv_user_profile_picture_collapsed_account"
                         android:gravity="center"
-                        android:text="Filip Ivanovski"
                         android:textSize="@dimen/text_size_large_title"
                         android:textStyle="bold"
                         tools:text="Filip Ivanovski" />

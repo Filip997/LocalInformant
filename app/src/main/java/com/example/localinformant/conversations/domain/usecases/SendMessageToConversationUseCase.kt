@@ -24,7 +24,13 @@ class SendMessageToConversationUseCase @Inject constructor(
             val result = conversationsRepository.sendMessage(conversationId, receiverId, messageText)
         ) {
             is Result.Success -> {
-                val currentUserType = preferencesRepository.getUserType()?.let { UserType.valueOf(it) }
+                val currentUserType = preferencesRepository.getUserType()?.let {
+                    if (it.isNotEmpty()) {
+                        UserType.valueOf(it)
+                    } else {
+                        null
+                    }
+                }
 
                 globalRepository.sendNotification(
                     toUserIds = listOf(receiverId),

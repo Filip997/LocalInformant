@@ -80,6 +80,8 @@ class RegisterViewModel @Inject constructor(
                     RegisterUserData.Company(
                         companyName = uiState.companyName!!,
                         companyEmail = uiState.companyEmail!!,
+                        address = uiState.address!!,
+                        phoneNumber = uiState.phoneNumber!!,
                         firstName = uiState.firstName!!,
                         lastName = uiState.lastName!!,
                         email = uiState.email!!,
@@ -113,6 +115,8 @@ class RegisterViewModel @Inject constructor(
                     userType = userType!!,
                     companyNameError = companyNameError,
                     companyEmailError = it.companyEmailError,
+                    addressError = it.addressError,
+                    phoneNumberError = it.phoneNumberError,
                     firstNameError = it.firstNameError,
                     lastNameError = it.lastNameError,
                     emailError = it.emailError,
@@ -138,6 +142,8 @@ class RegisterViewModel @Inject constructor(
                     userType = userType!!,
                     companyNameError = it.companyNameError,
                     companyEmailError = companyEmailError,
+                    addressError = it.addressError,
+                    phoneNumberError = it.phoneNumberError,
                     firstNameError = it.firstNameError,
                     lastNameError = it.lastNameError,
                     emailError = it.emailError,
@@ -155,6 +161,60 @@ class RegisterViewModel @Inject constructor(
         }
     }
 
+    fun onAddressChange(address: String) {
+        viewModelScope.launch {
+            val addressError = registerValidator.validateAddress(address)
+            _registerUiState.update {
+                val isRegistrationEnabled = registerValidator.validateIfRegistrationIsEnabled(
+                    userType = userType!!,
+                    companyNameError = it.companyNameError,
+                    companyEmailError = it.companyEmailError,
+                    addressError = addressError,
+                    phoneNumberError = it.phoneNumberError,
+                    firstNameError = it.firstNameError,
+                    lastNameError = it.lastNameError,
+                    emailError = it.emailError,
+                    passwordError = it.passwordError,
+                    confirmPasswordError = it.confirmPasswordError,
+                    isAgreementChecked = it.isAgreementChecked
+                )
+
+                it.copy(
+                    address = address,
+                    addressError = addressError,
+                    isRegistrationEnabled = isRegistrationEnabled
+                )
+            }
+        }
+    }
+
+    fun onPhoneNumberChange(phoneNumber: String) {
+        viewModelScope.launch {
+            val phoneNumberError = registerValidator.validatePhoneNumber(phoneNumber)
+            _registerUiState.update {
+                val isRegistrationEnabled = registerValidator.validateIfRegistrationIsEnabled(
+                    userType = userType!!,
+                    companyNameError = it.companyNameError,
+                    companyEmailError = it.companyEmailError,
+                    addressError = it.addressError,
+                    phoneNumberError = phoneNumberError,
+                    firstNameError = it.firstNameError,
+                    lastNameError = it.lastNameError,
+                    emailError = it.emailError,
+                    passwordError = it.passwordError,
+                    confirmPasswordError = it.confirmPasswordError,
+                    isAgreementChecked = it.isAgreementChecked
+                )
+
+                it.copy(
+                    phoneNumber = phoneNumber,
+                    phoneNumberError = phoneNumberError,
+                    isRegistrationEnabled = isRegistrationEnabled
+                )
+            }
+        }
+    }
+
     fun onFirstNameChange(firstName: String) {
         viewModelScope.launch {
             val firstNameError = registerValidator.validateFirstName(firstName)
@@ -163,6 +223,8 @@ class RegisterViewModel @Inject constructor(
                     userType = userType!!,
                     companyNameError = it.companyNameError,
                     companyEmailError = it.companyEmailError,
+                    addressError = it.addressError,
+                    phoneNumberError = it.phoneNumberError,
                     firstNameError = firstNameError,
                     lastNameError = it.lastNameError,
                     emailError = it.emailError,
@@ -188,6 +250,8 @@ class RegisterViewModel @Inject constructor(
                     userType = userType!!,
                     companyNameError = it.companyNameError,
                     companyEmailError = it.companyEmailError,
+                    addressError = it.addressError,
+                    phoneNumberError = it.phoneNumberError,
                     firstNameError = it.firstNameError,
                     lastNameError = lastNameError,
                     emailError = it.emailError,
@@ -213,6 +277,8 @@ class RegisterViewModel @Inject constructor(
                     userType = userType!!,
                     companyNameError = it.companyNameError,
                     companyEmailError = it.companyEmailError,
+                    addressError = it.addressError,
+                    phoneNumberError = it.phoneNumberError,
                     firstNameError = it.firstNameError,
                     lastNameError = it.lastNameError,
                     emailError = emailError,
@@ -238,6 +304,8 @@ class RegisterViewModel @Inject constructor(
                     userType = userType!!,
                     companyNameError = it.companyNameError,
                     companyEmailError = it.companyEmailError,
+                    addressError = it.addressError,
+                    phoneNumberError = it.phoneNumberError,
                     firstNameError = it.firstNameError,
                     lastNameError = it.lastNameError,
                     emailError = it.emailError,
@@ -263,6 +331,8 @@ class RegisterViewModel @Inject constructor(
                     userType = userType!!,
                     companyNameError = it.companyNameError,
                     companyEmailError = it.companyEmailError,
+                    addressError = it.addressError,
+                    phoneNumberError = it.phoneNumberError,
                     firstNameError = it.firstNameError,
                     lastNameError = it.lastNameError,
                     emailError = it.emailError,
@@ -287,6 +357,8 @@ class RegisterViewModel @Inject constructor(
                     userType = userType!!,
                     companyNameError = it.companyNameError,
                     companyEmailError = it.companyEmailError,
+                    addressError = it.addressError,
+                    phoneNumberError = it.phoneNumberError,
                     firstNameError = it.firstNameError,
                     lastNameError = it.lastNameError,
                     emailError = it.emailError,

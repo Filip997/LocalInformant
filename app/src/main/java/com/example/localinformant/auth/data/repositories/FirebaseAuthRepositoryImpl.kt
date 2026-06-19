@@ -84,6 +84,8 @@ class FirebaseAuthRepositoryImpl @Inject constructor(
                 companyNameLowerCase = request.companyName.lowercase(),
                 companyProfileImageUrl = "",
                 companyEmail = request.companyEmail,
+                address = request.address,
+                phoneNumber = request.phoneNumber,
                 email = request.email,
                 firstName = request.firstName,
                 lastName = request.lastName,

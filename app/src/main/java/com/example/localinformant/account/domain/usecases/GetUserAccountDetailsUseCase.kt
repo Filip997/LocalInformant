@@ -21,11 +21,14 @@ class GetUserAccountDetailsUseCase @Inject constructor(
 ) {
 
     suspend operator fun invoke(userId: String?, userType: UserType?): Result<UserAccountDetails, NetworkError> {
-        val currentUserType = UserType.valueOf(
-            preferencesRepository.getUserType() ?: return Result.Error(
-                NetworkError.UNKNOWN
-            )
-        )
+        val currentUserType = preferencesRepository.getUserType()?.let {
+            if (it.isNotEmpty()) {
+                UserType.valueOf(it)
+            } else {
+                null
+            }
+        } ?: return Result.Error(NetworkError.UNKNOWN)
+
 
         val currentUser: User? = when(currentUserType) {
             UserType.PERSON -> preferencesRepository.getPerson()

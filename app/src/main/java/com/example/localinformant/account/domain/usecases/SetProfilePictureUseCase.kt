@@ -16,7 +16,13 @@ class SetProfilePictureUseCase @Inject constructor(
 ) {
 
     suspend operator fun invoke(imageUri: Uri): Result<String, NetworkError> {
-        val userType = preferencesRepository.getUserType()?.let { UserType.valueOf(it) }
+        val userType = preferencesRepository.getUserType()?.let {
+            if (it.isNotEmpty()) {
+                UserType.valueOf(it)
+            } else {
+                null
+            }
+        }
 
         return if (userType != null) {
             when(val storageResult = userAccountRepository.saveProfileImage(imageUri, userType)) {

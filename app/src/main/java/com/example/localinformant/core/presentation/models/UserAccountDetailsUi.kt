@@ -9,6 +9,8 @@ data class UserAccountDetailsUi(
     val isUserFollowed: Boolean = false,
     val userProfileImage: String = "",
     val userName: String = "",
+    val address: String = "",
+    val phoneNumber: String = "",
     val followers: List<String> = listOf(),
     val following: List<String> = listOf(),
     val postsUi: List<PostUi> = listOf()

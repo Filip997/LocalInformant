@@ -31,7 +31,13 @@ class SubmitReactionUseCase @Inject constructor(
     suspend operator fun invoke(postId: String): Result<Post, NetworkError> {
         sendNotificationJob?.cancel()
 
-        val userType = UserType.valueOf(preferencesRepository.getUserType()!!)
+        val userType = preferencesRepository.getUserType()?.let {
+            if (it.isNotEmpty()) {
+                UserType.valueOf(it)
+            } else {
+                null
+            }
+        } ?: return Result.Error(NetworkError.UNKNOWN)
         val reactionId = UUID.randomUUID().toString()
 
         val person = preferencesRepository.getPerson()

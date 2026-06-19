@@ -9,6 +9,10 @@ class GetUserTypeUseCase @Inject constructor(
 ) {
 
     operator fun invoke() = preferencesRepository.getUserType()?.let {
-        UserType.valueOf(it)
+        if (it.isNotEmpty()) {
+            UserType.valueOf(it)
+        } else {
+            null
+        }
     }
 }
