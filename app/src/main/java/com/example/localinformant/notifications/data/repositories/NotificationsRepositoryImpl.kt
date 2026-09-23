@@ -68,7 +68,7 @@ class NotificationsRepositoryImpl @Inject constructor(
                             }
                         }
                     }
-                }
+                }.sortedByDescending { it.createdOn }
 
             Result.Success(notifications)
         } catch (e: FirebaseFirestoreException) {
