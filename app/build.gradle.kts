@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -10,6 +12,12 @@ android {
     namespace = "com.example.localinformant"
     compileSdk = 36
 
+    val localProperties = Properties().apply {
+        val file = rootProject.file("local.properties")
+        if (file.exists()) file.inputStream().use { load(it) }
+    }
+    val ipAddress = localProperties.getProperty("ip.address")
+
     defaultConfig {
         applicationId = "com.example.localinformant"
         minSdk = 24
@@ -18,6 +26,8 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "IP_ADDRESS", "\"$ipAddress\"")
     }
 
     buildTypes {
@@ -37,6 +47,7 @@ android {
 
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
 
